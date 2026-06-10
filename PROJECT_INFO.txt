@@ -1,0 +1,149 @@
+```
+Developer Shell - Qwen 3.6 Ollama Integration
+==============================================
+
+PROJECT STRUCTURE
+-----------------
+
+📁 codeshell/
+├── 🐍 CORE APPLICATION
+│   ├── shell.py              Main interactive shell application (executable)
+│   ├── config.py             Configuration and system prompts
+│   └── requirements.txt       Python dependencies
+│
+├── 📖 DOCUMENTATION
+│   ├── README.md             Complete documentation
+│   ├── QUICKSTART.md         Quick start guide (START HERE!)
+│   ├── examples.md           Usage examples
+│   └── EXAMPLES.md           Extended examples
+│
+├── 🔧 SETUP & AUTOMATION
+│   ├── setup.sh              Automated setup script (executable)
+│   ├── quickstart.sh         One-command quick start (executable)
+│   ├── Makefile              Build automation commands
+│   └── .gitignore            Git ignore rules
+│
+└── 📦 METADATA
+    ├── package.json          Package metadata
+    └── setup.py              Python package setup
+
+
+QUICK START COMMANDS
+--------------------
+
+1️⃣  Install & Setup:
+    bash setup.sh
+    OR
+    make setup
+    
+2️⃣  Start Ollama (Terminal 1):
+    ollama serve
+    
+3️⃣  Run the Shell (Terminal 2):
+    python3 shell.py
+    OR
+    make run
+    OR  
+    ./quickstart.sh
+
+
+KEY FEATURES
+------------
+
+✅ Interactive AI-powered shell using Qwen 3.6 model
+✅ System command execution (/run <command>)
+✅ Chat history tracking
+✅ Model management and switching
+✅ Multiple conversation modes
+✅ Developer-focused assistant
+✅ Easy to install and configure
+✅ Fully documented with examples
+
+
+AVAILABLE COMMANDS IN SHELL
+----------------------------
+
+/help              Show help and available commands
+/models            List all available Ollama models
+/pull <model>      Download a model (e.g., /pull qwen:7b)
+/model <name>      Switch to a different model
+/history           Show chat history
+/clear             Clear chat history
+/run <command>     Execute system commands
+/exit, /quit       Exit the shell
+
+
+MAKE COMMANDS
+-------------
+
+make setup         Complete setup (install + config)
+make install       Install dependencies only
+make run           Run the developer shell
+make clean         Clean cache and temp files
+make lint          Check code quality
+make format        Format code with black
+make help          Show all commands
+
+
+REQUIRED DEPENDENCIES
+---------------------
+
+System:
+  - Python 3.8+
+  - Ollama (download from ollama.ai)
+  - 4GB+ RAM (8GB recommended)
+  - 10GB+ disk space for models
+
+Python packages (auto-installed):
+  - requests          HTTP client for Ollama API
+  - ollama            Ollama Python client (optional)
+  - colorama          Terminal colors (optional)
+
+
+CONFIGURATION
+-------------
+
+Environment variables:
+  OLLAMA_HOST       Set Ollama server (default: http://localhost:11434)
+  OLLAMA_MODEL      Set default model (default: qwen:latest)
+
+Or edit config.py for permanent changes.
+
+
+TROUBLESHOOTING
+---------------
+
+❌ Cannot connect to Ollama
+✅ Make sure Ollama is running: ollama serve
+
+❌ Model not found
+✅ Pull the model: ollama pull qwen:latest
+
+❌ Slow responses
+✅ Use smaller model or GPU acceleration
+
+❌ High memory usage
+✅ Clear history (/clear) or use smaller model
+
+
+NEXT STEPS
+----------
+
+1. Read QUICKSTART.md for immediate setup
+2. Read README.md for complete documentation
+3. Check examples.md for usage patterns
+4. Run: python3 shell.py
+5. Type: /help for in-shell commands
+
+
+PROJECT INFO
+------------
+
+Created: June 2026
+Language: Python 3.8+
+License: MIT
+Author: Developer Shell Project
+
+All files are ready to use!
+Start with: QUICKSTART.md
+```

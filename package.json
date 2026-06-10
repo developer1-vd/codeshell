@@ -1,0 +1,23 @@
+{
+  "name": "codeshell",
+  "version": "1.0.0",
+  "description": "Developer Shell powered by Qwen 3.6 Ollama Model",
+  "main": "shell.py",
+  "type": "module",
+  "keywords": [
+    "ollama",
+    "qwen",
+    "developer",
+    "shell",
+    "ai",
+    "assistant",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "python3 shell.py",
+    "setup": "python3 setup.py",
+    "dev": "./shell.sh"
+  }
+}
