@@ -1,6 +1,8 @@
 #!/bin/bash
 # Easy run script - automatically handles virtual environment
 
+set -euo pipefail
+
 # Source OS detection helper if available
 if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then
     # shellcheck source=/dev/null

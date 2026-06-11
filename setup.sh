@@ -1,9 +1,8 @@
 #!/bin/bash
-
 # Setup script for Developer Shell
 # This script prepares the development environment
 
-set -e
+set -euo pipefail
 
 # Source OS detection helper if available
 if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then

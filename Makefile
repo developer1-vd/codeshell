@@ -1,15 +1,17 @@
-.PHONY: help setup install run clean test lint format
+.PHONY: help setup install run clean test lint format test-shell test-all
 
 help:
 	@echo "Developer Shell - Available Commands"
 	@echo "===================================="
-	@echo "make setup      - Complete setup (install deps + config)"
-	@echo "make install    - Install Python dependencies"
-	@echo "make run        - Run the developer shell"
-	@echo "make clean      - Clean cache and temporary files"
-	@echo "make lint       - Run code quality checks"
-	@echo "make format     - Format code with black"
-	@echo "make test       - Run tests"
+	@echo "make setup        - Complete setup (install deps + config)"
+	@echo "make install      - Install Python dependencies"
+	@echo "make run          - Run the developer shell"
+	@echo "make clean        - Clean cache and temporary files"
+	@echo "make lint         - Run code quality checks"
+	@echo "make format       - Format code with black"
+	@echo "make test         - Run Python tests"
+	@echo "make test-shell   - Run shell script tests (OS detection, install, uninstall)"
+	@echo "make test-all     - Run all tests"
 
 setup:
 	@bash setup.sh
@@ -39,5 +41,14 @@ format:
 
 test:
 	python3 -m pytest tests/ -v
+
+test-shell:
+	@echo "Running shell script tests..."
+	@bash tests/test_os_detection.sh
+	@bash tests/test_install_dryrun.sh
+	@bash tests/test_uninstall.sh
+
+test-all: test test-shell
+	@echo "All tests passed!"
 
 .SILENT: help

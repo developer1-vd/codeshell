@@ -1,7 +1,7 @@
 #!/bin/bash
 # Quick start script for the Developer Shell
 
-set -e
+set -euo pipefail
 
 # Source OS detection helper if available
 if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then

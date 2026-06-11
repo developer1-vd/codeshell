@@ -47,3 +47,10 @@ jobs:
           chmod +x tests/test_install_dryrun.sh
           bash tests/test_install_dryrun.sh
         shell: bash
+
+      - name: Run uninstall test script
+        if: runner.os != 'Windows'
+        run: |
+          chmod +x tests/test_uninstall.sh
+          bash tests/test_uninstall.sh
+        shell: bash
