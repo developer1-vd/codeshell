@@ -49,14 +49,6 @@ fi
 # Create the executable wrapper script (minimal cross-platform)
 echo "Creating executable wrapper for OS: $OS..."
 
-# Detect OS and set sensible default if INSTALL_DIR not provided
-case "$(uname -s)" in
-    Darwin*) DEFAULT_DIR="/usr/local/bin" ;;
-    CYGWIN*|MINGW*|MSYS*) DEFAULT_DIR="$HOME/bin" ;;
-    *) DEFAULT_DIR="$HOME/.local/bin" ;;
-esac
-INSTALL_DIR="${INSTALL_DIR:-$DEFAULT_DIR}"
-
 mkdir -p "$INSTALL_DIR" 2>/dev/null || true
 
 # Windows-like: create CMD and PowerShell launchers
@@ -92,6 +84,55 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 VENV_DIR="$PROJECT_ROOT/venv"
 if [ ! -d "$VENV_DIR" ]; then
     (command -v python3 >/dev/null 2>&1 && python3 -m venv "$VENV_DIR" --system-site-packages) || python -m venv "$VENV_DIR" --system-site-packages
+fi
+
+# macOS-specific extras
+if [ "$OS" = "macOS" ]; then
+    # Optional Homebrew install of Ollama if requested
+    if [ "${DO_BREW:-false}" = "true" ]; then
+        if command -v brew >/dev/null 2>&1; then
+            if ! command -v ollama >/dev/null 2>&1; then
+                echo "Installing Ollama via Homebrew..."
+                brew install ollama || echo "brew install failed; please install Ollama manually"
+            else
+                echo "Ollama already installed"
+            fi
+        else
+            echo "Homebrew not found; skipping brew install"
+        fi
+    fi
+
+    # Optionally create a LaunchAgent to start Ollama (if requested)
+    if [ "${INSTALL_LAUNCHAGENT:-false}" = "true" ]; then
+        LAUNCH_DIR="$HOME/Library/LaunchAgents"
+        mkdir -p "$LAUNCH_DIR"
+        PLIST_PATH="$LAUNCH_DIR/org.codeshell.ollama.plist"
+        cat > "$PLIST_PATH" <<PLIST
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>org.codeshell.ollama</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/local/bin/ollama</string>
+    <string>serve</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>StandardOutPath</key>
+  <string>$HOME/Library/Logs/ollama-serve.log</string>
+  <key>StandardErrorPath</key>
+  <string>$HOME/Library/Logs/ollama-serve.err</string>
+</dict>
+</plist>
+PLIST
+        echo "Created LaunchAgent at: $PLIST_PATH"
+        echo "Load it with: launchctl load ~/Library/LaunchAgents/$(basename "$PLIST_PATH")"
+    fi
 fi
 "$VENV_DIR/bin/python" "$PROJECT_ROOT/shell.py" "$@"
 SH

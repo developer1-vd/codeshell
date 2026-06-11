@@ -33,6 +33,27 @@ To run the test that validates detection:
 bash tests/test_os_detection.sh
 ```
 
+CI: A GitHub Actions workflow is included at `.github/workflows/ci.yml` which runs the OS detection test on push and pull requests across Linux, macOS, and Windows.
+
+macOS-specific options:
+- To let the installer attempt to install Ollama via Homebrew, run:
+
+```bash
+DO_BREW=true bash install.sh
+```
+
+- To create a LaunchAgent that starts `ollama serve` at login, run:
+
+```bash
+INSTALL_LAUNCHAGENT=true bash install.sh
+```
+
+The LaunchAgent will be written to `~/Library/LaunchAgents/org.codeshell.ollama.plist` and can be loaded with:
+
+```bash
+launchctl load ~/Library/LaunchAgents/org.codeshell.ollama.plist
+```
+
 ## 📋 Requirements
 
 - Python 3.8+
