@@ -11,6 +11,28 @@ A powerful interactive shell for developers powered by the Qwen 3.6 model via Ol
 - 📋 **Chat History**: Track conversation history
 - ⚡ **Fast Setup**: Simple installation and configuration
 
+**OS Detection and Defaults**
+
+- The project includes a small helper at `scripts/os_detect.sh` which detects the host OS and exports `OS` and `DEFAULT_INSTALL_DIR`.
+- Detection covers: `macOS`, `BSD` (Free/Open/NetBSD), `Linux`, `WSL` and `Windows`.
+- Default install locations (can be overridden by `INSTALL_DIR` environment variable):
+  - macOS / BSD: `/usr/local/bin`
+  - Linux / WSL: `$HOME/.local/bin`
+  - Windows: `$HOME/bin`
+- Scripts such as `install.sh`, `uninstall.sh`, `run.sh`, `setup.sh`, and `quickstart.sh` source this helper when available and expose the `OS` variable for conditional behavior.
+ - Default config locations (can be overridden by setting `XDG_CONFIG_HOME` or using environment variables):
+   - macOS: `$HOME/Library/Application Support/devshell` (or `$XDG_CONFIG_HOME/devshell` if set)
+   - BSD: `$HOME/.config/devshell` (or `$XDG_CONFIG_HOME/devshell`)
+   - Linux / WSL: `$XDG_CONFIG_HOME/devshell` or `$HOME/.config/devshell`
+   - Windows: `%APPDATA%\devshell`
+ - The helper also exports a `PKG_HINT` string with a suggested package-manager command for the detected OS (useful for messages and hints displayed by scripts).
+
+To run the test that validates detection:
+
+```bash
+bash tests/test_os_detection.sh
+```
+
 ## 📋 Requirements
 
 - Python 3.8+

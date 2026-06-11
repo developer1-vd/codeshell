@@ -1,14 +1,26 @@
 #!/bin/bash
 # Easy run script - automatically handles virtual environment
 
+# Source OS detection helper if available
+if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then
+    # shellcheck source=/dev/null
+    . "$(dirname "$0")/scripts/os_detect.sh"
+fi
+
 cd "$(dirname "$0")" || exit 1
+
+# Prefer python3, fallback to python
+PYTHON_CMD=python3
+if ! command -v "$PYTHON_CMD" &> /dev/null; then
+        PYTHON_CMD=python
+fi
 
 # Create venv if it doesn't exist
 if [ ! -d "venv" ]; then
     echo "Creating virtual environment..."
-    python3 -m venv venv --system-site-packages
+    "$PYTHON_CMD" -m venv venv --system-site-packages
 fi
 
 # Activate and run
 source venv/bin/activate
-exec python shell.py "$@"
+exec "$PYTHON_CMD" shell.py "$@"

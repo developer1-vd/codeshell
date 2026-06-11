@@ -5,30 +5,41 @@
 
 set -e
 
+# Source OS detection helper if available
+if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then
+    # shellcheck source=/dev/null
+    . "$(dirname "$0")/scripts/os_detect.sh"
+fi
+
 echo "================================"
 echo "Developer Shell Setup"
 echo "================================"
 echo ""
 
-# Check Python version
+# Check Python installation
 echo "Checking Python installation..."
-if ! command -v python3 &> /dev/null; then
-    echo "❌ Python 3 is not installed"
-    echo "Please install Python 3.8 or higher"
-    exit 1
+PYTHON_CMD=python3
+if ! command -v "$PYTHON_CMD" &> /dev/null; then
+    if command -v python &> /dev/null; then
+        PYTHON_CMD=python
+    else
+        echo "❌ Python is not installed"
+        echo "Please install Python 3.8 or higher"
+        exit 1
+    fi
 fi
 
-python_version=$(python3 --version | awk '{print $2}')
+python_version=$($PYTHON_CMD --version 2>&1 | awk '{print $2}')
 echo "✅ Python $python_version found"
 echo ""
 
 # Check if requests is available
 echo "Checking for Python requests library..."
-if python3 -c "import requests" 2>/dev/null; then
+if $PYTHON_CMD -c "import requests" 2>/dev/null; then
     echo "✅ requests library found"
 else
     echo "⚠️  requests library not found - creating virtual environment with system packages"
-    python3 -m venv venv --system-site-packages
+    $PYTHON_CMD -m venv venv --system-site-packages
     echo "✅ Virtual environment created"
 fi
 echo ""
@@ -37,13 +48,14 @@ echo ""
 echo "Checking Ollama installation..."
 if ! command -v ollama &> /dev/null; then
     echo "⚠️  Ollama is not installed or not in PATH"
-    echo "Please install Ollama from https://ollama.ai"
-    echo "Or run: brew install ollama (macOS) or use official installer"
-    read -p "Continue without Ollama check? (y/n): " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
+    if [ "$OS" = "macOS" ]; then
+        echo "Install with Homebrew: brew install ollama"
+    elif [ "$OS" = "BSD" ]; then
+        echo "Install via package manager, e.g. pkg_add or pkg on your BSD system"
+    else
+        echo "Please install Ollama from https://ollama.ai"
     fi
+    echo "Continuing setup without Ollama checks. You can add it to PATH later."
 else
     echo "✅ Ollama is installed"
     ollama_version=$(ollama version 2>/dev/null || echo "unknown")
@@ -57,10 +69,15 @@ chmod +x shell.py
 echo "✅ shell.py is now executable"
 echo ""
 
-# Create config directory
+# Create config directory (OS-aware)
 echo "Creating configuration directory..."
-mkdir -p ~/.config/devshell
-echo "✅ Config directory created at ~/.config/devshell"
+if [ -n "$DEFAULT_CONFIG_DIR" ]; then
+    mkdir -p "$DEFAULT_CONFIG_DIR" 2>/dev/null || true
+    echo "✅ Config directory created at: $DEFAULT_CONFIG_DIR"
+else
+    mkdir -p "$XDG_CONFIG_HOME"/devshell 2>/dev/null || mkdir -p ~/.config/devshell
+    echo "✅ Config directory created at: ${XDG_CONFIG_HOME:-$HOME/.config}/devshell"
+fi
 echo ""
 
 # Check if running Ollama
