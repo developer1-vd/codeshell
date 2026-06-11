@@ -2,7 +2,7 @@
 
 A powerful interactive shell for developers powered by the Qwen 3.6 model via Ollama. Write code, debug issues, and get instant development advice in your terminal.
 
-## 🚀 Features
+## Features
 
 - 🤖 **AI-Powered Assistance**: Leverage Qwen 3.6 for coding help, debugging, and architecture discussions
 - 💬 **Conversational Interface**: Maintain context across multiple queries
@@ -54,14 +54,14 @@ The LaunchAgent will be written to `~/Library/LaunchAgents/org.codeshell.ollama.
 launchctl load ~/Library/LaunchAgents/org.codeshell.ollama.plist
 ```
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.8+
 - Ollama (installed and running)
 - 4GB+ RAM (8GB+ recommended)
 - 10GB+ disk space for models
 
-## 📥 Installation
+## Installation
 
 ### Step 1: Install Ollama
 
@@ -151,7 +151,7 @@ make format     # Format code with black
 make help       # Show all available commands
 ```
 
-## 🎯 Use Cases
+## Use Cases
 
 ### 1. Code Debugging
 ```
@@ -207,7 +207,7 @@ OLLAMA_MODEL = "qwen:latest"
 RESPONSE_TIMEOUT = 120
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Connection Error
 
@@ -248,7 +248,7 @@ ollama pull qwen:latest
 python3 shell.py --model qwen:2
 ```
 
-## 🛠️ Development
+## Development
 
 ### Project Structure
 
@@ -287,7 +287,7 @@ MODES = {
 }
 ```
 
-## 📚 Supported Ollama Models
+## Supported Ollama Models
 
 - **Qwen Series** (Recommended)
   - `qwen:latest` - Fast, balanced
@@ -309,17 +309,17 @@ List local models:
 ollama list
 ```
 
-## 📖 Documentation
+## Documentation
 
 - [Ollama Docs](https://github.com/ollama/ollama)
 - [Qwen Model Card](https://huggingface.co/Qwen)
 - [Python Requests](https://requests.readthedocs.io/)
 
-## 📄 License
+## License
 
 MIT License - Feel free to use and modify as needed.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Areas for enhancement:
 
@@ -330,7 +330,7 @@ Contributions welcome! Areas for enhancement:
 - Syntax highlighting for code blocks
 - Support for multimodal inputs
 
-## 🆘 Support
+## Support
 
 For issues and questions:
 
@@ -342,4 +342,4 @@ For issues and questions:
 
 ---
 
-**Happy coding!** 🚀 Feel free to customize this shell for your specific needs.
+**Happy coding!** Feel free to customize this shell for your specific needs.
