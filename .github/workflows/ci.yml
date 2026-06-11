@@ -25,3 +25,25 @@ jobs:
         run: |
           bash tests/test_os_detection.sh
         shell: bash
+
+      - name: Install dry-run (Linux/macOS)
+        if: runner.os != 'Windows'
+        run: |
+          mkdir -p tmp_inst
+          INSTALL_DIR="$PWD/tmp_inst/bin" bash install.sh
+          ls -la tmp_inst/bin || true
+        shell: bash
+
+      - name: macOS LaunchAgent test
+        if: runner.os == 'macOS'
+        run: |
+          INSTALL_DIR="$PWD/tmp_inst/bin" INSTALL_LAUNCHAGENT=true bash install.sh
+          ls -la $HOME/Library/LaunchAgents/org.codeshell.ollama.plist || true
+        shell: bash
+
+      - name: Run install dry-run test script
+        if: runner.os != 'Windows'
+        run: |
+          chmod +x tests/test_install_dryrun.sh
+          bash tests/test_install_dryrun.sh
+        shell: bash
