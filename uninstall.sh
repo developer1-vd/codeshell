@@ -74,13 +74,13 @@ fi
 
 if [ $removed -gt 0 ]; then
   echo ""
-  echo "✅ Successfully removed $removed file(s)"
+  echo "Successfully removed $removed file(s)"
   echo ""
   echo "The project files remain in:"
   echo "   $PROJECT_ROOT"
 else
   echo ""
-  echo "❌ No installed files found in $INSTALL_DIR"
+  echo "No installed files found in $INSTALL_DIR"
 fi
 
 echo ""

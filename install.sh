@@ -55,7 +55,7 @@ if [ ! -d "$VENV_DIR" ]; then
     else
       python -m venv "$VENV_DIR" --system-site-packages
     fi
-    echo "✅ Virtual environment created"
+    echo "Virtual environment created"
 fi
 
 # Create the executable wrapper script (minimal cross-platform)
@@ -86,7 +86,7 @@ PS1
 
   chmod +x "$INSTALL_DIR/codeshell.cmd" 2>/dev/null || true
   chmod +x "$INSTALL_DIR/codeshell.ps1" 2>/dev/null || true
-  echo "✅ Created: $INSTALL_DIR/codeshell.cmd and $INSTALL_DIR/codeshell.ps1"
+  echo "Created: $INSTALL_DIR/codeshell.cmd and $INSTALL_DIR/codeshell.ps1"
 else
   cat > "$INSTALL_DIR/codeshell" <<'SH'
 #!/usr/bin/env bash
@@ -98,7 +98,7 @@ fi
 "$VENV_DIR/bin/python" "$PROJECT_ROOT/shell.py" "$@"
 SH
   chmod +x "$INSTALL_DIR/codeshell"
-  echo "✅ Created: $INSTALL_DIR/codeshell"
+  echo "Created: $INSTALL_DIR/codeshell"
 fi
 
 # macOS-specific extras (installer-level)
@@ -165,7 +165,7 @@ PLIST
   fi
 fi
 
-echo "✅ Installation complete!"
+echo "Installation complete!"
 echo ""
 cat <<USAGE
 Usage:

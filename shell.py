@@ -195,12 +195,12 @@ Type '/help' anytime for assistance.
     def run(self):
         """Main shell loop"""
         print(f"\n{'='*60}")
-        print("🚀 Developer Shell with Qwen Latest via Ollama")
+        print("Developer Shell with Qwen Latest via Ollama")
         print(f"{'='*60}")
 
         # Check Ollama connection
         if not self.check_ollama_connection():
-            print(f"\n⚠️  Warning: Cannot connect to Ollama at {self.host}")
+            print(f"\nWarning: Cannot connect to Ollama at {self.host}")
             print("Make sure Ollama is running. Start it with: ollama serve")
             response = input("\nContinue anyway? (y/n): ").strip().lower()
             if response != "y":
@@ -209,7 +209,7 @@ Type '/help' anytime for assistance.
         # Check if model is available
         available_models = self.list_available_models()
         if self.model_name not in available_models:
-            print(f"\n⚠️  Model '{self.model_name}' not found locally")
+            print(f"\nModel '{self.model_name}' not found locally")
             if available_models:
                 print(f"Available models: {', '.join(available_models)}")
             response = input(f"Pull model '{self.model_name}'? (y/n): ").strip().lower()
@@ -221,7 +221,7 @@ Type '/help' anytime for assistance.
                 print("Model not available. Exiting.")
                 sys.exit(1)
 
-        print(f"\n✅ Using model: {self.model_name}")
+        print(f"\nUsing model: {self.model_name}")
         print("Type '/help' for available commands or start chatting!")
         print(f"{'='*60}\n")
 
@@ -235,7 +235,7 @@ Type '/help' anytime for assistance.
                 # Check for special commands
                 special_result = self.handle_special_commands(user_input)
                 if special_result is None:  # Exit command
-                    print("\nGoodbye! 👋")
+                    print("\nGoodbye!")
                     break
                 elif special_result is not False:  # Special command was handled
                     print(f"\n{special_result}\n")

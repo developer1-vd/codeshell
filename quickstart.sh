@@ -9,22 +9,22 @@ if [ -f "$(dirname "$0")/scripts/os_detect.sh" ]; then
     . "$(dirname "$0")/scripts/os_detect.sh"
 fi
 
-echo "🚀 Developer Shell - Quick Start (OS: ${OS:-Unknown})"
+echo "Developer Shell - Quick Start (OS: ${OS:-Unknown})"
 echo "================================"
 echo ""
 
 # Check if Ollama is installed
 if ! command -v ollama &> /dev/null; then
-    echo "❌ Ollama not found. ${PKG_HINT:-Install from https://ollama.ai}"
+    echo "Ollama not found. ${PKG_HINT:-Install from https://ollama.ai}"
     exit 1
 fi
 
-echo "✅ Ollama found"
+echo "Ollama found"
 
 # Check if Ollama is running; do not prompt interactively
 if ! curl -s http://localhost:11434/api/tags > /dev/null 2>&1; then
     echo ""
-    echo "⚠️  Ollama is not running"
+    echo "Ollama is not running"
     echo "Start it in another terminal with: ollama serve"
     echo ""
 fi
@@ -33,7 +33,7 @@ fi
 if [ ! -d "venv" ]; then
     echo "Creating virtual environment..."
     python3 -m venv venv --system-site-packages
-    echo "✅ Virtual environment created"
+    echo "Virtual environment created"
 fi
 
 # Activate virtual environment
@@ -47,7 +47,7 @@ if ! ollama list 2>/dev/null | grep -q "qwen:latest"; then
 fi
 
 echo ""
-echo "✅ Setup complete! Starting Developer Shell..."
+echo "Setup complete! Starting Developer Shell..."
 echo ""
 
 # Start the shell

@@ -36,7 +36,7 @@ source venv/bin/activate
 
 ### 4. Verify Setup
 ```bash
-python -c "import requests; print('✅ requests available')"
+python -c "import requests; print('requests available')"
 python shell.py --help
 ```
 

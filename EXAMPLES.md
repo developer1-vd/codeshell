@@ -4,7 +4,7 @@ A merged and expanded collection of developer workflows for the interactive shel
 
 ---
 
-## 🐍 Python Development
+## Python Development
 
 ### 1. Code Review & Optimization
 ```
@@ -41,7 +41,7 @@ You: /run python3 -m pdb myscript.py
 
 ---
 
-## 🌐 Web Development
+## Web Development
 
 ### 1. React/Vue Debugging
 ```
@@ -67,7 +67,7 @@ You: Optimize this query:
 
 ---
 
-## 📱 Mobile Development
+## Mobile Development
 
 ### 1. Swift/Kotlin Help
 ```
@@ -89,7 +89,7 @@ You: How can I securely authenticate API requests from a mobile app?
 
 ---
 
-## 🔒 Security
+## Security
 
 ### 1. Code Security Review
 ```
@@ -111,7 +111,7 @@ You: Audit this API authentication flow and recommend security improvements.
 
 ---
 
-## 🔧 DevOps & System Administration
+## DevOps & System Administration
 
 ### 1. Docker Help
 ```
@@ -143,7 +143,7 @@ You: Why am I seeing 502 Bad Gateway errors?
 
 ---
 
-## 📊 Data Science & Analytics
+## Data Science & Analytics
 
 ### 1. Pandas DataFrame Issues
 ```
@@ -168,7 +168,7 @@ You: Optimize this slow query:
 
 ---
 
-## 📚 Learning & Documentation
+## Learning & Documentation
 
 ### 1. Learn a New Framework
 ```
@@ -192,7 +192,7 @@ You: What's the time complexity?
 
 ---
 
-## 🐛 Debugging Workflows
+## Debugging Workflows
 
 ### 1. Binary Search Debugging
 ```
@@ -218,7 +218,7 @@ You: What's the bottleneck?
 
 ---
 
-## 🚀 Deployment & Release
+## Deployment & Release
 
 ### 1. Version Release Planning
 ```
@@ -243,7 +243,7 @@ You: How do I handle database rollbacks?
 
 ---
 
-## 💼 Project Management
+## Project Management
 
 ### 1. Architecture Review
 ```
@@ -268,7 +268,7 @@ You: Help me improve the code quality score.
 
 ---
 
-## 📝 Quick Reference
+## Quick Reference
 
 **Quick Code Review:**
 ```
@@ -296,7 +296,7 @@ You: /run make build
 
 ---
 
-## 🎯 Pro Tips
+## Pro Tips
 
 1. **Use `/run` for command output** - Execute scripts and show results.
 2. **Paste full context** - More code means better advice.
@@ -307,7 +307,7 @@ You: /run make build
 
 ---
 
-## 🔗 Common Workflows
+## Common Workflows
 
 ### Code Review Session
 ```
@@ -338,7 +338,7 @@ You: /run python3 test_connection.py
 
 ---
 
-## ✨ Advanced Features
+## Advanced Features
 
 ### Combining Commands
 ```

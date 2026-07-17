@@ -1,6 +1,6 @@
-# ✅ Developer Shell Setup Complete!
+# Developer Shell Setup Complete!
 
-## 🎯 Quick Start (Pick One)
+## Quick Start (Pick One)
 
 ### Option 1: One-Command Run (Easiest)
 ```bash
@@ -27,7 +27,7 @@ make run
 
 ---
 
-## 📋 What Was Created
+## What Was Created
 
 ### Core Files
 - **shell.py** - Main AI-powered shell application
@@ -35,7 +35,7 @@ make run
 - **requirements.txt** - Python dependencies
 
 ### Easy-Run Scripts  
-- **run.sh** ⭐ - Easiest! One-click run with auto venv
+- **run.sh** - Easiest! One-click run with auto venv
 - **setup.sh** - Full setup script
 - **quickstart.sh** - Quick setup alternative
 
@@ -51,7 +51,7 @@ make run
 
 ---
 
-## 🚀 Next Steps
+## Next Steps
 
 ### 1. Start Ollama (in Terminal 1)
 ```bash
@@ -78,7 +78,7 @@ Assistant: [Shows all available commands]
 
 ---
 
-## 📚 Available Commands in Shell
+## Available Commands in Shell
 
 | Command | Purpose |
 |---------|---------|
@@ -93,20 +93,20 @@ Assistant: [Shows all available commands]
 
 ---
 
-## ❓ Why This Setup?
+## Why This Setup?
 
 Your system (Void Linux) restricts direct pip installation. The solution:
 
-✅ **Virtual Environment** - Isolated Python environment  
-✅ **System Site Packages** - Access pre-installed packages like `requests`  
-✅ **No root needed** - Fully user-scoped  
-✅ **Easy to manage** - Just activate/deactivate  
+**Virtual Environment** - Isolated Python environment  
+**System Site Packages** - Access pre-installed packages like `requests`  
+**No root needed** - Fully user-scoped  
+**Easy to manage** - Just activate/deactivate  
 
 For details, see [SETUP_WITHOUT_PIP.md](SETUP_WITHOUT_PIP.md)
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Script doesn't run
 ```bash
@@ -130,7 +130,7 @@ ollama serve  # In another terminal
 
 ---
 
-## 💡 Pro Tips
+## Pro Tips
 
 1. **Keep Ollama running** - Start it in a dedicated terminal
 2. **Activate venv before running** - Or use `./run.sh` which does it automatically
@@ -140,15 +140,15 @@ ollama serve  # In another terminal
 
 ---
 
-## 🎉 You're All Set!
+## You're All Set!
 
 Everything is ready. Just:
 1. Start Ollama: `ollama serve`
 2. Run shell: `./run.sh`
 3. Start coding: Type your questions!
 
-**Happy coding!** 🚀
+**Happy coding!**
 
 ---
 
-📁 Project location: `/home/viraj/.gitclonefolders/codeshell`
+Project location: `/home/viraj/.gitclonefolders/codeshell`

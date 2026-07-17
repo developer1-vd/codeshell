@@ -4,12 +4,12 @@ A powerful interactive shell for developers powered by the Qwen 3.6 model via Ol
 
 ## Features
 
-- 🤖 **AI-Powered Assistance**: Leverage Qwen 3.6 for coding help, debugging, and architecture discussions
-- 💬 **Conversational Interface**: Maintain context across multiple queries
-- 🔧 **System Integration**: Execute shell commands directly within the shell
-- 📚 **Multiple Modes**: Developer, Code Review, and DevOps modes
-- 📋 **Chat History**: Track conversation history
-- ⚡ **Fast Setup**: Simple installation and configuration
+- AI-Powered Assistance: Leverage Qwen 3.6 for coding help, debugging, and architecture discussions
+- Conversational Interface: Maintain context across multiple queries
+- System Integration: Execute shell commands directly within the shell
+- Multiple Modes: Developer, Code Review, and DevOps modes
+- Chat History: Track conversation history
+- Fast Setup: Simple installation and configuration
 
 **OS Detection and Defaults**
 
@@ -123,7 +123,7 @@ Then run:
 codeshell
 ```
 
-## 💬 Interactive Commands
+## Interactive Commands
 
 ### Help & Information
 - `/help` - Display help message
@@ -139,7 +139,7 @@ codeshell
 - `/clear` - Clear chat history
 - `/exit` or `/quit` - Exit the shell
 
-## 🔧 Using Make Commands
+## Using Make Commands
 
 ```bash
 make setup      # Complete setup (install deps + config)
@@ -182,7 +182,7 @@ You: Explain how SOLID principles apply to this code:
 You: [Paste code]
 ```
 
-## ⚙️ Configuration
+## Configuration
 
 ### Environment Variables
 

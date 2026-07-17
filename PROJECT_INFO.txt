@@ -5,25 +5,25 @@ Developer Shell - Qwen 3.6 Ollama Integration
 PROJECT STRUCTURE
 -----------------
 
-📁 codeshell/
-├── 🐍 CORE APPLICATION
+codeshell/
+├── CORE APPLICATION
 │   ├── shell.py              Main interactive shell application (executable)
 │   ├── config.py             Configuration and system prompts
 │   └── requirements.txt       Python dependencies
 │
-├── 📖 DOCUMENTATION
+├── DOCUMENTATION
 │   ├── README.md             Complete documentation
 │   ├── QUICKSTART.md         Quick start guide (START HERE!)
 │   ├── examples.md           Usage examples
 │   └── EXAMPLES.md           Extended examples
 │
-├── 🔧 SETUP & AUTOMATION
+├── SETUP & AUTOMATION
 │   ├── setup.sh              Automated setup script (executable)
 │   ├── quickstart.sh         One-command quick start (executable)
 │   ├── Makefile              Build automation commands
 │   └── .gitignore            Git ignore rules
 │
-└── 📦 METADATA
+└── METADATA
     ├── package.json          Package metadata
     └── setup.py              Python package setup
 
@@ -31,15 +31,15 @@ PROJECT STRUCTURE
 QUICK START COMMANDS
 --------------------
 
-1️⃣  Install & Setup:
+1. Install & Setup:
     bash setup.sh
     OR
     make setup
     
-2️⃣  Start Ollama (Terminal 1):
+2. Start Ollama (Terminal 1):
     ollama serve
     
-3️⃣  Run the Shell (Terminal 2):
+3. Run the Shell (Terminal 2):
     python3 shell.py
     OR
     make run
@@ -50,14 +50,14 @@ QUICK START COMMANDS
 KEY FEATURES
 ------------
 
-✅ Interactive AI-powered shell using Qwen 3.6 model
-✅ System command execution (/run <command>)
-✅ Chat history tracking
-✅ Model management and switching
-✅ Multiple conversation modes
-✅ Developer-focused assistant
-✅ Easy to install and configure
-✅ Fully documented with examples
+- Interactive AI-powered shell using Qwen 3.6 model
+- System command execution (/run <command>)
+- Chat history tracking
+- Model management and switching
+- Multiple conversation modes
+- Developer-focused assistant
+- Easy to install and configure
+- Fully documented with examples
 
 
 AVAILABLE COMMANDS IN SHELL
@@ -113,17 +113,17 @@ Or edit config.py for permanent changes.
 TROUBLESHOOTING
 ---------------
 
-❌ Cannot connect to Ollama
-✅ Make sure Ollama is running: ollama serve
+Cannot connect to Ollama
+Make sure Ollama is running: ollama serve
 
-❌ Model not found
-✅ Pull the model: ollama pull qwen:latest
+Model not found
+Pull the model: ollama pull qwen:latest
 
-❌ Slow responses
-✅ Use smaller model or GPU acceleration
+Slow responses
+Use smaller model or GPU acceleration
 
-❌ High memory usage
-✅ Clear history (/clear) or use smaller model
+High memory usage
+Clear history (/clear) or use smaller model
 
 
 NEXT STEPS

@@ -1,4 +1,4 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
 ## One-Minute Setup
 
@@ -42,7 +42,7 @@ source venv/bin/activate
 python shell.py
 ```
 
-That's it! 🎉
+That's it!
 
 ---
 
@@ -133,19 +133,19 @@ ollama pull qwen:latest
 
 ## Next Steps
 
-- 📖 Read [README.md](README.md) for detailed documentation
-- 🔧 Edit [config.py](config.py) for customization
-- 🎯 Check [examples.md](examples.md) for more use cases
-- 🛠️ Review [Makefile](Makefile) for available automation
+- Read [README.md](README.md) for detailed documentation
+- Edit [config.py](config.py) for customization
+- Check [examples.md](examples.md) for more use cases
+- Review [Makefile](Makefile) for available automation
 
 ---
 
 ## System Requirements
 
-- ✅ Python 3.8+
-- ✅ Ollama (latest version)
-- ✅ 4GB+ RAM (8GB recommended)
-- ✅ 10GB+ disk space (for models)
+- Python 3.8+
+- Ollama (latest version)
+- 4GB+ RAM (8GB recommended)
+- 10GB+ disk space (for models)
 
 ---
 
